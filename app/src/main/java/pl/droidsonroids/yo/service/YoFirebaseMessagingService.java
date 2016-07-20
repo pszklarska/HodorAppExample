@@ -1,4 +1,4 @@
-package pl.droidsonroids.yo;
+package pl.droidsonroids.yo.service;
 
 import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;

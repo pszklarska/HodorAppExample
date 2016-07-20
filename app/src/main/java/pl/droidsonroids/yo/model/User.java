@@ -1,4 +1,4 @@
-package pl.droidsonroids.yo;
+package pl.droidsonroids.yo.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -8,10 +8,19 @@ public class User {
     public String token;
 
     public User() {
+        //no-op
     }
 
     public User(final String username, final String token) {
         this.username = username;
         this.token = token;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getToken() {
+        return token;
     }
 }

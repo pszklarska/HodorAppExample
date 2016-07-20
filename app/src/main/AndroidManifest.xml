@@ -16,14 +16,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".YoFirebaseMessagingService">
+        <service android:name=".service.YoFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

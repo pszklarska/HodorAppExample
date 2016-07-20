@@ -14,9 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import pl.droidsonroids.yo.Constants;
-import pl.droidsonroids.yo.MainActivity;
 import pl.droidsonroids.yo.R;
-import pl.droidsonroids.yo.User;
+import pl.droidsonroids.yo.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
