@@ -1,11 +1,12 @@
-package pl.droidsonroids.yo.model;
+package pl.droidsonroids.hodor.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.gson.annotations.SerializedName;
 
 @IgnoreExtraProperties
 public class User {
-    public String username;
-    public String token;
+    @SerializedName("username") public String username;
+    @SerializedName("token") public String deviceToken;
 
     public User() {
         //no-op
@@ -13,7 +14,7 @@ public class User {
 
     public User(final String username, final String token) {
         this.username = username;
-        this.token = token;
+        this.deviceToken = token;
     }
 
     public String getUsername() {
@@ -21,6 +22,6 @@ public class User {
     }
 
     public String getToken() {
-        return token;
+        return deviceToken;
     }
 }

@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "475639113039",
-    "firebase_url": "https://yoapp-7774c.firebaseio.com",
-    "project_id": "yoapp-7774c",
-    "storage_bucket": "yoapp-7774c.appspot.com"
+    "project_number": "948171548959",
+    "firebase_url": "https://hodorapp-6ffac.firebaseio.com",
+    "project_id": "hodorapp-6ffac",
+    "storage_bucket": "hodorapp-6ffac.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:475639113039:android:3f3f013239524dea",
+        "mobilesdk_app_id": "1:948171548959:android:7a9181381008587a",
         "android_client_info": {
-          "package_name": "pl.droidsonroids.yo"
+          "package_name": "pl.droidsonroids.hodor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "475639113039-bdecrpo4jo9pke49s6n8vsgedm4hlr1e.apps.googleusercontent.com",
+          "client_id": "948171548959-jham44gm21osbo4sfqo8fhfi83r2p2tp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDKj0Nbt6tGhGwq46V-pHQPe1ZusXyFMDU"
+          "current_key": "AIzaSyBUFw-hfv_tj25WBDdd-ZkQ2pOb1OjoP18"
         }
       ],
       "services": {

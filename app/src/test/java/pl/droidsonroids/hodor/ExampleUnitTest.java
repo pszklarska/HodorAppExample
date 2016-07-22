@@ -1,4 +1,4 @@
-package pl.droidsonroids.yo;
+package pl.droidsonroids.hodor;
 
 import org.junit.Test;
 
