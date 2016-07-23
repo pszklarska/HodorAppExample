@@ -22,6 +22,7 @@ import pl.droidsonroids.hodor.HodorPreferences;
 import pl.droidsonroids.hodor.R;
 import pl.droidsonroids.hodor.adapter.UsersListAdapter;
 import pl.droidsonroids.hodor.retrofit.RestAdapter;
+import pl.droidsonroids.hodor.service.HodorMessagingService;
 import pl.droidsonroids.hodor.util.DatabaseHelper;
 import pl.droidsonroids.hodor.util.DialogUtil;
 
@@ -50,9 +51,23 @@ public class MainActivity extends AppCompatActivity {
         mRestAdapter = HodorApplication.getInstance().getRestAdapter();
         mDatabaseHelper = HodorApplication.getInstance().getDatabaseHelper();
 
+        if (getIntent().getExtras() != null) {
+            if (getIntent().getIntExtra(HodorMessagingService.BUNDLE_REQUEST_CODE, 0)
+                    == HodorMessagingService.REQUEST_CODE_SEND_HODOR_BACK) {
+                showDialogAboutNotification(getIntent().getStringExtra(HodorMessagingService.BUNDLE_USERNAME));
+            }
+        }
+
         setSupportActionBar(mToolbar);
         setView();
         initFriendsList();
+    }
+
+    private void showDialogAboutNotification(final String username) {
+        DialogUtil.showSendNotificationDialog(this,
+                username,
+                () -> mDatabaseHelper.getUserFromDatabase(username,
+                        user -> mRestAdapter.sendPush(user.getToken(), mHodorPreferences.getUsername())));
     }
 
     private void initFriendsList() {
@@ -80,18 +95,22 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(dialogView);
         builder.setPositiveButton(getString(R.string.add_friend_dialog_positive), (dialog, which) -> {
             final String username = editTextUsername.getText().toString();
-            mDatabaseHelper.getUserFromDatabase(username, user -> {
-                if (user != null) {
-                    mDatabaseHelper.addFriendToDatabase(user);
-                } else {
-                    DialogUtil.showUserDoesNotExist(MainActivity.this);
-                }
-            });
+            onAddFriendClick(username);
         });
         builder.setNegativeButton(getString(R.string.add_friend_dialog_negative), (dialog, which) -> {
             dialog.cancel();
         });
 
         builder.show();
+    }
+
+    private void onAddFriendClick(final String username) {
+        mDatabaseHelper.getUserFromDatabase(username, user -> {
+            if (user != null) {
+                mDatabaseHelper.addFriendToDatabase(user);
+            } else {
+                DialogUtil.showUserDoesNotExist(MainActivity.this);
+            }
+        });
     }
 }

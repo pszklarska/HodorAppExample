@@ -74,11 +74,22 @@ public class DatabaseHelper {
                 });
     }
 
+    public void saveUserInDatabase(final User user, final OnFinishedListener listener) {
+        mDatabaseReference.child(Constants.DB_USER)
+                .child(user.getUsername())
+                .setValue(user)
+                .addOnCompleteListener(task -> listener.onFinished());
+    }
+
     public interface OnUserReceivedListener {
         void onUserReceived(User user);
     }
 
     public interface OnUsersReceivedListener {
         void onUsersReceived(List<String> users);
+    }
+
+    public interface OnFinishedListener {
+        void onFinished();
     }
 }

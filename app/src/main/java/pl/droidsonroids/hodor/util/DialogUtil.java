@@ -14,4 +14,15 @@ public class DialogUtil {
                 .create()
                 .show();
     }
+
+    public static void showSendNotificationDialog(Context context, final String username,
+            final Runnable onPositiveButtonClick) {
+        new AlertDialog.Builder(context).setTitle(R.string.send_notification)
+                .setMessage(context.getResources().getString(R.string.send_notification_msg, username))
+                .setPositiveButton(R.string.send, (dialog, which) -> {
+                    onPositiveButtonClick.run();
+                })
+                .create()
+                .show();
+    }
 }
