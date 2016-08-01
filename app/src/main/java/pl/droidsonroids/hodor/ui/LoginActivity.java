@@ -7,7 +7,6 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.google.firebase.iid.FirebaseInstanceId;
 import pl.droidsonroids.hodor.HodorApplication;
 import pl.droidsonroids.hodor.HodorPreferences;
 import pl.droidsonroids.hodor.R;
@@ -45,7 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         if (GooglePlayUtils.isGooglePlayServicesAvailable(this)) {
             final ProgressDialog loginProgressDialog = showProgressDialog();
             final String username = mEditTextLogin.getText().toString();
-            User user = new User(username, FirebaseInstanceId.getInstance().getToken());
+            final String token = null;      //TODO
+
+            User user = new User(username, token);
             mDatabaseHelper.saveUserInDatabase(user, () -> {
                 mHodorPreferences.setUsername(username);
                 goToMain();

@@ -38,7 +38,6 @@ public class UsersListViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setOnClickListener(final User friend) {
-        mTextViewUsername.setOnClickListener(v -> mRestAdapter.sendPush(friend.getToken(),
-                mHodorPreferences.getUsername()));
+        //TODO
     }
 }

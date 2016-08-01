@@ -23,12 +23,6 @@
             </intent-filter>
         </service>
 
-        <service android:name=".service.HodorInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-
 
         <activity
             android:name="pl.droidsonroids.hodor.ui.MainActivity"
